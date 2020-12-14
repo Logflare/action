@@ -1,8 +1,7 @@
 on: [push]
 name: Test
 jobs:
-  readmeExample:
-    name: "[TEST] README example"
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
