@@ -1,0 +1,21 @@
+name: Logflare Log
+description: "Create a log in a Logflare source"
+branding:
+  icon: "activity"
+  color: green
+inputs:
+  api_key:
+    description: "Find your API KEY at https://logflare.app/dashboard"
+    required: true
+  source_id:
+    description: "Provide the id of one of your sources listed on https://logflare.app/dashboard"
+    required: true
+  message:
+    description: "The message you want to appear on logflare.app"
+    required: true
+  metadata:
+    description: "The meta data object to attach to your message"
+    required: true
+runs:
+  using: "node12"
+  main: "dist/index.js"

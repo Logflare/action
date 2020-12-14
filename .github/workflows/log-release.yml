@@ -1,0 +1,19 @@
+name: Log new release
+on:
+  release:
+    types: [published]
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm ci
+      - run: npm run build
+      - uses: ./
+        with:
+          api_key: ${{ secrets.LOGFLARE_API_KEY }}
+          source_id: ${{ secrets.LOGFLARE_SOURCE_ID }}
+          message: "new release: ${{ github.event.release.html_url }}"
+          metadata: ${{ toJSON(github.event) }}
