@@ -1,5 +1,3 @@
-# 🚧 WORK IN PROGRESS - see [#1](https://github.com/gr2m/logflare-log-action/pull/1)
-
 # Logflare Log Action
 
 > GitHub Action to create a log in a [Logflare](https://logflare.app/) source
