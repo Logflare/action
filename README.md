@@ -23,7 +23,7 @@ jobs:
   log:
     runs-on: ubuntu-latest
     steps:
-      - uses: gr2m/logflare-log-action@v1.x
+      - uses: gr2m/logflare-log-action@v1
         id: stats
         with:
           api_key: ${{ secrets.LOGFLARE_API_KEY }}
