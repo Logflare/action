@@ -5330,6 +5330,9 @@ async function sendLog(core) {
   const url = `https://api.logflare.app/logs?api_key=${api_key}&source=${source_id}`;
   const json = { log_entry, metadata };
 
+  core.debug("Sending log ...");
+  core.debug(json);
+
   const { statusCode, statusMessage, body } = await post(url, { json });
 
   if (statusCode !== 200) {
@@ -5340,7 +5343,7 @@ async function sendLog(core) {
     throw error;
   }
 
-  core.info("Log message sent");
+  core.info("Log message sent.");
   core.debug("Response from Logflare:");
   core.debug(body);
 }
