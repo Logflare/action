@@ -11,7 +11,7 @@
   "keywords": [
     "action"
   ],
-  "repository": "https://github.com/gr2m/logflare-log-action",
+  "repository": "https://github.com/logflare/action",
   "author": "Gregor Martynus (https://twitter.com/gr2m)",
   "license": "MIT",
   "dependencies": {
