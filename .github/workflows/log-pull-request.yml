@@ -16,4 +16,12 @@ jobs:
           api_key: ${{ secrets.LOGFLARE_API_KEY }}
           source_id: ${{ secrets.LOGFLARE_SOURCE_ID }}
           message: "pull request ${{ github.event.action }}: ${{ github.event.pull_request.html_url }}"
-          metadata: ${{ toJSON(github.event) }}
+          # github.event pull_request payload example:
+          # https://docs.github.com/en/free-pro-team@latest/developers/webhooks-and-events/webhook-events-and-payloads#webhook-payload-example-30
+          metadata: |
+            {
+              "action": "${{ github.event.action }}",
+              "created_by": "${{ github.event.pull_request.user.login }}",
+              "head": "${{ github.event.pull_request.head.label }}",
+              "base": "${{ github.event.pull_request.base.label }}"
+            }

@@ -35,8 +35,18 @@ test("README example", async function () {
 
   await sendLog(coreMock).catch(console.log);
 
-  assert.equal(infoLogs, ["Log message sent"]);
-  assert.equal(debugLogs, ["Response from Logflare:", '{"message":"Logged!"}']);
+  assert.equal(infoLogs, ["Log message sent."]);
+  assert.equal(debugLogs, [
+    "Sending log ...",
+    {
+      log_entry: "my log message",
+      metadata: {
+        meta: "data",
+      },
+    },
+    "Response from Logflare:",
+    '{"message":"Logged!"}',
+  ]);
 });
 
 test.run();

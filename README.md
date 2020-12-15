@@ -2,7 +2,7 @@
 
 > GitHub Action to create a log in a [Logflare](https://logflare.app/) source
 
-[![Build Status](https://github.com/gr2m/logflare-log-action/workflows/Test/badge.svg)](https://github.com/gr2m/logflare-log-action/actions)
+[![Build Status](https://github.com/logflare/action/workflows/Test/badge.svg)](https://github.com/logflare/action/actions)
 
 ## Usage
 
@@ -23,7 +23,7 @@ jobs:
   log:
     runs-on: ubuntu-latest
     steps:
-      - uses: gr2m/logflare-log-action@v1
+      - uses: logflare/action@v1
         id: stats
         with:
           api_key: ${{ secrets.LOGFLARE_API_KEY }}
