@@ -29,7 +29,11 @@ jobs:
           api_key: ${{ secrets.LOGFLARE_API_KEY }}
           source_id: ${{ secrets.LOGFLARE_SOURCE_ID }}
           message: "new release: ${{ github.event.release.html_url }}"
-          metadata: ${{ toJSON(github.event) }}
+          metadata: |
+            {
+              "version": "${{ github.event.release.tag_name }}"
+            }
+
 ```
 
 ## Debugging
