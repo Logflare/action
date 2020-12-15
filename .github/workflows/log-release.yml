@@ -16,4 +16,12 @@ jobs:
           api_key: ${{ secrets.LOGFLARE_API_KEY }}
           source_id: ${{ secrets.LOGFLARE_SOURCE_ID }}
           message: "new release: ${{ github.event.release.html_url }}"
-          metadata: ${{ toJSON(github.event) }}
+          # github.event release payload example:
+          # https://docs.github.com/en/free-pro-team@latest/developers/webhooks-and-events/webhook-events-and-payloads#webhook-payload-example-34
+          metadata: |
+            {
+              "action": "${{ github.event.action }}",
+              "created_by": "${{ github.event.user.login }}",
+              "head": "${{ github.event.head.label }}",
+              "base": "${{ github.event.base.label }}"
+            }
