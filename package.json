@@ -16,7 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "got": "^11.8.1"
+    "got": "^11.8.2"
   },
   "devDependencies": {
     "@semantic-release/git": "^9.0.0",
