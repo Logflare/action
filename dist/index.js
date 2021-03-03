@@ -5259,12 +5259,14 @@ exports.default = async (body, headers) => {
 /***/ }),
 
 /***/ 790:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const tls_1 = __webpack_require__(16);
+function isTLSSocket(socket) {
+    return socket.encrypted;
+}
 const deferToConnect = (socket, fn) => {
     let listeners;
     if (typeof fn === 'function') {
@@ -5281,7 +5283,7 @@ const deferToConnect = (socket, fn) => {
         if (hasConnectListener) {
             listeners.connect();
         }
-        if (socket instanceof tls_1.TLSSocket && hasSecureConnectListener) {
+        if (isTLSSocket(socket) && hasSecureConnectListener) {
             if (socket.authorized) {
                 listeners.secureConnect();
             }
@@ -6513,7 +6515,7 @@ const is_response_ok_1 = __webpack_require__(422);
 const deprecation_warning_1 = __webpack_require__(189);
 const normalize_arguments_1 = __webpack_require__(992);
 const calculate_retry_delay_1 = __webpack_require__(594);
-const globalDnsCache = new cacheable_lookup_1.default();
+let globalDnsCache;
 const kRequest = Symbol('request');
 const kResponse = Symbol('response');
 const kResponseSize = Symbol('responseSize');
@@ -7070,6 +7072,9 @@ class Request extends stream_1.Duplex {
         options.cacheOptions = { ...options.cacheOptions };
         // `options.dnsCache`
         if (options.dnsCache === true) {
+            if (!globalDnsCache) {
+                globalDnsCache = new cacheable_lookup_1.default();
+            }
             options.dnsCache = globalDnsCache;
         }
         else if (!is_1.default.undefined(options.dnsCache) && !options.dnsCache.lookup) {
