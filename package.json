@@ -15,14 +15,14 @@
   "author": "Gregor Martynus (https://twitter.com/gr2m)",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.6",
+    "@actions/core": "^1.4.0",
     "got": "^11.8.2"
   },
   "devDependencies": {
     "@semantic-release/git": "^9.0.0",
     "@zeit/ncc": "^0.22.3",
     "semantic-release": "^17.4.4",
-    "nock": "^13.0.11",
+    "nock": "^13.1.0",
     "uvu": "^0.5.1"
   },
   "release": {
